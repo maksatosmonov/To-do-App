@@ -12,13 +12,13 @@
     <title>My To Do App</title>
 </head>
 <body>
-<div class="container p-4 my-4 border rounded" style="width: 32%; border-color:#1E90FF;" >
+<div class="container p-4 my-4 border rounded" style="width: 32%">
     <h4 style="color:#1E90FF">MY PERSONAL TO DO PLANNER</h4> <br>
     <a href="{% url 'list_todo' %}"><img src="https://to-do-cdn.microsoft.com/static-assets/c87265a87f887380a04cf21925a56539b29364b51ae53e089c3ee2b2180148c6/icons/logo.png" class="center"></a> 
     <br>
-        <nav class="navbar navbar-dark bg-primary rounded">
-            <a class="navbar-brand"  href="{% url 'create_todo' %}" style="text-align: center;">ADD YOUR TASK</a>
-        </nav>
+        <div class="button">
+            <a href="{% url 'create_todo' %}" class="btn btn-primary btn-block btn-lg rounded" role="button">+ ADD YOUR TASK</a>
+        </div>
     <br>
     {% block content %}
         {% for todo in list_todo %}

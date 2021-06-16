@@ -2,7 +2,7 @@
 
 
 {% block content %}
-<div> 
+<div style="height: 30%"> 
     <h4 style="text-align: center;">{{ detail_todo.task }}</h4> <br>    
     <table class="table table-bordered"> 
         <tr>
@@ -23,8 +23,8 @@
         </tr>
     </table>
 
-    <a href="{% url 'update_todo' detail_todo.id %}" class="btn btn-success" style="float: left;" role="button">UPDATE TASK</a>
-    <a href="{% url 'delete_todo' detail_todo.id %}" class="btn btn-danger" style="float: right;" role="button">DELETE TASK</a>
+        <a href="{% url 'update_todo' detail_todo.id %}" class="btn btn-success" style="float: left;" role="button">UPDATE TASK</a>
+        <a href="{% url 'delete_todo' detail_todo.id %}" class="btn btn-danger" style="float: right;" role="button">DELETE TASK</a>
 
 </div>
 
