@@ -23,12 +23,13 @@
     {% block content %}
         {% for todo in list_todo %}
 
-        <div class="list-group">
-            <a href="{% url 'detail_todo' todo.id %}"> <button type="button" class="collapsible rounded">{{ todo.task }}</button></a>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">{{ todo.status }}</label>   
-        </div> 
+        <div class="card">
+            <div class="card">
+                <a href="{% url 'detail_todo' todo.id %}"> <button type="button" class="collapsible rounded">{{ todo.task }}</button></a>
+            Due_time: {{ todo.due_time }} <br>
+            Status: {{ todo.status }}
+            </div>
+          </div>
 
    
         {% endfor %}
