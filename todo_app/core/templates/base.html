@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet"  href="{% static 'css/style.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <title>My To Do App</title>
+</head>
+<body>
+<div class="container p-4 my-4 border rounded" style="width: 32%; border-color:#1E90FF;" >
+    <h4 style="color:#1E90FF">MY PERSONAL TO DO PLANNER</h4> <br>
+    <a href="{% url 'list_todo' %}"><img src="https://to-do-cdn.microsoft.com/static-assets/c87265a87f887380a04cf21925a56539b29364b51ae53e089c3ee2b2180148c6/icons/logo.png" class="center"></a> 
+    <br>
+        <nav class="navbar navbar-dark bg-primary rounded">
+            <a class="navbar-brand"  href="{% url 'create_todo' %}" style="text-align: center;">ADD YOUR TASK</a>
+        </nav>
+    <br>
+    {% block content %}
+        {% for todo in list_todo %}
+
+        <div class="list-group">
+            <a href="{% url 'detail_todo' todo.id %}"> <button type="button" class="collapsible rounded">{{ todo.task }}</button></a>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">{{ todo.status }}</label>   
+        </div> 
+
+   
+        {% endfor %}
+
+    {% endblock %}
+</div>
+
+</body>
+</html>

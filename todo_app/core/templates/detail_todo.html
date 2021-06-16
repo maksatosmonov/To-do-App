@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div> 
+    <h4 style="text-align: center;">{{ detail_todo.task }}</h4> <br>    
+    <table class="table table-bordered"> 
+        <tr>
+            <th>Text</th>
+            <td>{{ detail_todo.text }}</td>
+        </tr>    
+        <tr>
+            <th>Priority</th>
+            <td>{{ detail_todo.priority }}</td>
+        </tr>
+        <tr>
+            <th>Due time</th>
+            <td>{{ detail_todo.due_time }}</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ detail_todo.status }}</td>
+        </tr>
+    </table>
+
+    <a href="{% url 'update_todo' detail_todo.id %}" class="btn btn-success" style="float: left;" role="button">UPDATE TASK</a>
+    <a href="{% url 'delete_todo' detail_todo.id %}" class="btn btn-danger" style="float: right;" role="button">DELETE TASK</a>
+
+</div>
+
+{% endblock content %}
